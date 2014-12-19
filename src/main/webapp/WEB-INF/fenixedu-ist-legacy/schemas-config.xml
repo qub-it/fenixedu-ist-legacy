@@ -32,27 +32,6 @@
         </slot>
     </schema>
 
-    <schema name="researcher.career" type="org.fenixedu.academic.domain.teacher.ProfessionalCareer" bundle="DOMAIN_RESOURCES" constructor="person, beginYear, endYear, function, entity">
-        <slot name="person" hidden="true" />
-        <slot name="entity" key="label.teacher.ProfessionalCareer.entity">
-            <validator class="pt.ist.fenixWebFramework.renderers.validators.RequiredValidator" />
-            <property name="size" value="60" />
-        </slot>
-        <slot name="function" key="label.teacher.ProfessionalCareer.function">
-            <validator class="pt.ist.fenixWebFramework.renderers.validators.RequiredValidator" />
-            <property name="size" value="60" />
-        </slot>
-        <slot name="beginYear" key="label.teacher.ProfessionalCareer.beginYear">
-            <validator class="pt.ist.fenixWebFramework.renderers.validators.RequiredValidator" />
-            <validator class="pt.ist.fenixWebFramework.renderers.validators.NumberValidator" />
-            <property name="size" value="4" />
-        </slot>
-        <slot name="endYear" key="label.teacher.ProfessionalCareer.endYear">
-            <validator class="pt.ist.fenixWebFramework.renderers.validators.NumberValidator" />
-            <property name="size" value="4" />
-        </slot>
-    </schema>
-
     <schema name="view.genericFileUpload" type="org.fenixedu.academic.ui.struts.action.research.researchUnit.UnitFileUploadBean" bundle="RESEARCHER_RESOURCES">
         <slot name="name" validator="pt.ist.fenixWebFramework.renderers.validators.RequiredValidator">
             <property name="size" value="60" />

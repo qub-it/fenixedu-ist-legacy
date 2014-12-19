@@ -80,15 +80,12 @@
     <logic:notEmpty name="lectures">
     <li><%=GenericChecksumRewriter.NO_CHECKSUM_PREFIX%><a href="#lecturesTitle"><bean:message bundle="DEPARTMENT_MEMBER_RESOURCES" key="label.teacher.details.lecturedCoursesInformation"/></a></li>
 	</logic:notEmpty>
-	<logic:notEmpty  name="final_works">	
+	<logic:notEmpty  name="orientedThesis">	
 		<li><%=GenericChecksumRewriter.NO_CHECKSUM_PREFIX%><a href="#guidancesTitle"><bean:message bundle="DEPARTMENT_MEMBER_RESOURCES" key="label.teacher.details.orientationInformation"/></a></li>
 	</logic:notEmpty>
 	<logic:notEmpty name="functions">
 	<li><%=GenericChecksumRewriter.NO_CHECKSUM_PREFIX%><a href="#functionsTitle"><bean:message bundle="DEPARTMENT_MEMBER_RESOURCES" key="label.teacher.details.functionsInformation"/></a></li>
 	</logic:notEmpty>
-    <logic:notEmpty name="career">
-    <li><%=GenericChecksumRewriter.NO_CHECKSUM_PREFIX%><a href="#career"><bean:message bundle="RESEARCHER_RESOURCES" key="label.career"/></a></li>
-    </logic:notEmpty>
 </ol>
 
 <!-- Personal Information -->
@@ -133,35 +130,11 @@
 </logic:notEmpty>
 
 <!-- Final Works -->
-<logic:notEmpty  name="final_works">	
+<logic:notEmpty  name="orientedThesis">	
 <p id='guidancesTitle' class="separator2" style="position: relative; width: 99%; margin-top: 2em;">
 	<span><bean:message bundle="DEPARTMENT_MEMBER_RESOURCES" key="label.teacher.details.orientationInformation"/></span>
 	<span style="position: absolute; right: 5px;"><%=GenericChecksumRewriter.NO_CHECKSUM_PREFIX%><a href="#header"><bean:message key="label.top" /></a></span>
 </p>
-</logic:notEmpty>
-<logic:empty  name="final_works">	
-    <logic:notEmpty  name="secondCycleThesis">	
-	    <p id='guidancesTitle' class="separator2" style="position: relative; width: 99%; margin-top: 2em;">
-	    	<span><bean:message bundle="DEPARTMENT_MEMBER_RESOURCES" key="label.teacher.details.orientationInformation"/></span>
-	    	<span style="position: absolute; right: 5px;"><%=GenericChecksumRewriter.NO_CHECKSUM_PREFIX%><a href="#header"><bean:message key="label.top" /></a></span>
-	    </p>
-	</logic:notEmpty>
-</logic:empty>
-
-<logic:notEmpty  name="final_works">	
-	<p class="indent1"><em><bean:message key="label.common.finalDegreeWorks" bundle="DEPARTMENT_MEMBER_RESOURCES"/></em></p>
-
-	<logic:iterate id="final_work" name="final_works">
-		<div style="float: left; width: 300px; margin: 0; padding: 0;">
-		<ul style="margin-top: 0; margin-bottom: 0;">
-		<li class="smalltxt" style="margin: 0; padding: 0;">
-			<span class="color888"><fr:view name="final_work" property="startExecutionPeriod.executionYear.year"/></span> - 
-			<span title="<fr:view name="final_work" property="student.person.name"/>"><fr:view name="final_work" property="student.person.firstAndLastName"/> (<fr:view name="final_work" property="student.number"/>)</span>
-		</li>
-		</ul>
-		</div>
-	</logic:iterate>
-	<div style="clear: both;"></div>
 </logic:notEmpty>
 
 <logic:notEmpty name="secondCycleThesis">
@@ -203,22 +176,6 @@
 </logic:notEmpty>
 
 </logic:present>
-
-<logic:notEmpty name="career">
-	<p id='career' class="separator2" style="position: relative; width: 99%; margin-top: 2em;">
-	   <span><bean:message bundle="RESEARCHER_RESOURCES" key="label.career" /></span>
-	   <span style="position: absolute; right: 5px;"><%=GenericChecksumRewriter.NO_CHECKSUM_PREFIX%><a href="#header"><bean:message key="label.top" /></a></span>
-	</p>
-
-    <ul>
-    <logic:iterate id="line" name="career">
-		<li>
-            <span class="color888"><fr:view name="line" property="beginYear"/><logic:present name="line" property="endYear"> <bean:message key="label.until" bundle="RESEARCHER_RESOURCES"/> <fr:view name="line" property="endYear"/></span></logic:present>, 
-            <fr:view name="line" property="function"/> (<fr:view name="line" property="entity"/>)
-        </li>
-    </logic:iterate>
-    </ul>
-</logic:notEmpty>
 
 <script type="text/javascript" language="javascript">
 switchGlobal();
